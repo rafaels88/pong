@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class MoveByTouch : NetworkBehaviour
 {
-    public PlayerScript player;
+    public Player player;
 
     void Start()
     {
-        player = gameObject.GetComponent<PlayerScript>();
+        player = gameObject.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class MoveByTouch : NetworkBehaviour
             {
                 player.MoveY(1f);
             }
-            else
+            else if (touchVector.y < playerPosition.y)
             {
                 player.MoveY(-1f);
             }
